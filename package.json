@@ -1,0 +1,73 @@
+{
+  "name": "eslint-config-daun",
+  "version": "0.0.1",
+  "description": "ESLint rules base config",
+  "main": "index.js",
+  "scripts": {
+    "find-new-rules": "npm-run-all --parallel find-new-rules:*",
+    "find-new-rules:jest": "eslint-find-rules --unused ./other/test/jest/index.js",
+    "find-new-rules:main": "eslint-find-rules --unused ./index.js",
+    "find-new-rules:vue": "eslint-find-rules --unused ./other/test/vue/index.js",
+    "find-new-rules:webpack": "eslint-find-rules --unused ./other/test/webpack/index.js",
+    "lint": "kcd-scripts lint",
+    "test": "npm-run-all --parallel lint find-new-rules",
+    "validate": "kcd-scripts validate lint,test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daun/eslint-config-daun"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "javascript",
+    "styleguide"
+  ],
+  "author": "Philipp Daun <daun@daun.ltd>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daun/eslint-config-daun/issues"
+  },
+  "homepage": "https://github.com/daun/eslint-config-daun#readme",
+  "dependencies": {
+    "@rushstack/eslint-patch": "^1.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-jest-dom": "^2.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-testing-library": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "read-pkg-up": "^7.0.1",
+    "webpack": "^4.43.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=6"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.16.3",
+    "@testing-library/jest-dom": "^5.10.1",
+    "eslint": "^6.8.0",
+    "eslint-find-rules": "^3.5.0",
+    "kcd-scripts": "^6.2.3",
+    "npm-run-all": "^4.1.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "./index.js"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=8.10",
+    "npm": ">=6",
+    "yarn": ">=1"
+  }
+}
